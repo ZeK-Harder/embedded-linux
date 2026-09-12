@@ -43,4 +43,23 @@ struct node *find_by_id(struct node *head, int id){
         ptr=ptr->next;
     }
     return NULL;
+} 
+
+int delete_node(struct node **head, int id){
+    struct node *cur=*head;
+    struct node *prev=NULL;
+    while(cur!=NULL){
+        if(cur->id==id){
+            if(prev==NULL){
+                *head=cur->next;
+            }else{
+                prev->next=cur->next;
+            }
+            free(cur);
+            return 1; // success
+        }
+        prev=cur;
+        cur=cur->next;
+    }
+    return 0; // not found
 }
