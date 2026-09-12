@@ -17,5 +17,6 @@ int main(){
     }else{      
         printf("Not found: %d\n",99);
     }   
+    list_free(head);
     return 0;
 }

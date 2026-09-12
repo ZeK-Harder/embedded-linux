@@ -25,6 +25,15 @@ void append_to_tail(struct node **head, int id){
     ptr->next=new_node;
 }
 
+void list_free(struct node *head){
+    struct node *ptr=head;
+    while(ptr!=NULL){
+        struct node *temp=ptr;
+        ptr=ptr->next;
+        free(temp);
+    }
+}
+
 struct node *find_by_id(struct node *head, int id){
     struct node *ptr=head;
     while(ptr!=NULL){
