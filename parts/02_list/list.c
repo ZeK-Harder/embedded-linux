@@ -29,11 +29,9 @@ struct node *find_by_id(struct node *head, int id){
     struct node *ptr=head;
     while(ptr!=NULL){
         if(ptr->id==id){
-            printf("Found: %d\n",ptr->id);
             return ptr;
         }
         ptr=ptr->next;
     }
-    printf("Not found: %d\n",id);
     return NULL;
 }
