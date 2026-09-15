@@ -7,7 +7,7 @@ struct ringbuf {
     size_t cap;
     size_t read;   /* 读位置 */
     size_t write;   /* 写位置 */
-    int count;    /* 当前缓冲区中数据的字节数 */
+    size_t count;    /* 当前缓冲区中数据的字节数 */
 };
 
 int    ringbuf_init(struct ringbuf *rb, size_t cap);      /* 成功1，失败0 */
