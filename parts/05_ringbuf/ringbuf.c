@@ -2,14 +2,15 @@
 #include <stdlib.h>
 
 int    ringbuf_init(struct ringbuf *rb, size_t cap){
-    rb->data=(uint8_t *)malloc(cap);
-    if(!rb->data){
-        return 0;
-    }
+    rb->data = NULL;
     rb->cap = cap;
     rb->read = 0;
     rb->write = 0;
     rb->count = 0;
+    rb->data=(uint8_t *)malloc(cap);
+    if(!rb->data){
+        return 0;
+    }
     return 1;
 }
 
