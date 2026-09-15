@@ -3,7 +3,7 @@
 
 int    ringbuf_init(struct ringbuf *rb, size_t cap){
     rb->data = NULL;
-    rb->cap = cap;
+    rb->cap = 0;
     rb->read = 0;
     rb->write = 0;
     rb->count = 0;
@@ -11,6 +11,7 @@ int    ringbuf_init(struct ringbuf *rb, size_t cap){
     if(!rb->data){
         return 0;
     }
+    rb->cap = cap;
     return 1;
 }
 
