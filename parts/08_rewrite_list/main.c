@@ -4,7 +4,10 @@
 
 int main(){
     struct node *head = NULL;
-    append_to_tail(&head, 1);
+    if (append_to_tail(&head, 1) == 0) {
+    printf("添加节点失败");
+    return 1;
+    }
     append_to_tail(&head, 2);
     append_to_tail(&head, 3);
     print_list(head);

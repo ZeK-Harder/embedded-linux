@@ -2,19 +2,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void append_to_tail (struct node **head,int id){
+int append_to_tail (struct node **head,int id){
     struct node *new_node = malloc(sizeof(struct node));
+    if(new_node == NULL){
+        return 0;
+    }
     new_node->id = id;
     new_node->next = NULL;
     if(*head == NULL){
         *head = new_node;
-        return;
+        return 1;
     }
     struct node *ptr = *head;
     while(ptr->next != NULL){
         ptr = ptr->next;
     }
     ptr->next = new_node;
+    return 1;
 }
 
 void print_list (struct node *head){
